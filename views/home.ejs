@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home</title>
+</head>
+<body>
+	<h4>AddNewUser</h4>
+    <form action="/user/add" method="POST" >
+        <table>
+            <tr>
+                <td>
+                    <input type="text" name="firstname" placeholder="firstname">  
+                </td>
+                <td>
+                    <input type="text" name="lastname" placeholder="lastname">  
+                </td>
+                <td>
+                    <input type="text" name="country" placeholder="country">  
+                </td>
+                <td>
+                    <input type="text" name="city" placeholder="city">  
+                </td>
+                <td>
+                    <input type="submit" value="add"><br>
+                </td>
+            </tr>        
+        </table>
+    </form>
+    <br>
+    <% if (users.length > 0) {%>
+    <h2>AllUser</h2>
+    <table border="1" style="text-align: center;font-family: 'Courier New', Courier, monospace;font: 600;">
+        <thead>
+            <tr>
+                <th>
+                    firstname
+                </th>
+                <th>
+                    lastname
+                </th>
+                <th>
+                    country
+                </th>
+                <th>
+                    city
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i < users.length; i++) {%>
+            <tr>
+             <td><%= users[i].firstname%></td>
+             <td><%= users[i].lastname%></td>
+             <td><%= users[i].country%></td>
+             <td><%= users[i].city%></td>             
+             <td><button onclick="javascript:location.href='/user/delete?userId=<%= users[i].id %>'">delete</button></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% }%>
+</body>
+</html>
