@@ -8,9 +8,10 @@ const router = express.Router()
 // userController will handle all the business logics about this route
 router.get('/home', userController.userHome)
 
-// this route handler will be executed on '/user/add' request
+// this route handler will be executed on '/user/add' POST request
 router.post('/add', userController.addUsers)
 
+// this route handler will be executed on '/user/delete' request
 router.get('/delete', userController.deleteUser)
 
 // exports the express.Router instance
