@@ -3,7 +3,7 @@ require('dotenv').config()
 
 // Database Config(MongoDB)
 const dbConfig = {
-  url: process.env.MONGODB_URI,
+  uri: process.env.MONGODB_URI,
   params: {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -11,7 +11,7 @@ const dbConfig = {
   }
 }
 // connecting to database(MongoDB)
-mongoose.connect(dbConfig.url, dbConfig.params)
+mongoose.connect(dbConfig.uri, dbConfig.params)
   .then(() => {
     console.log('Connecting to Database Successfully!')
   })
