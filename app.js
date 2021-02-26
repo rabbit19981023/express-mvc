@@ -1,8 +1,10 @@
 const express = require('express')
 const path = require('path')
+
 const morgan = require('morgan')
 require('dotenv').config()
 require('./db.js')
+
 const userRoutes = require('./routes/userRoutes.js')
 
 // create a express web
