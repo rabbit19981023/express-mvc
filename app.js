@@ -1,7 +1,6 @@
 const express = require('express')
 const path = require('path')
-// morgan only required in development mode
-//const morgan = require('morgan')
+const morgan = require('morgan')
 require('dotenv').config()
 require('./db.js')
 const userRoutes = require('./routes/userRoutes.js')
@@ -15,8 +14,8 @@ app.set('views', path.resolve(__dirname, 'views'))
 // setting the template engine
 app.set('view engine', 'ejs')
 
-// checking all the user requests in development mode
-//app.use(morgan('dev'))
+// checking all the user requests
+app.use(morgan('dev'))
 
 // fetch JSON Data from received POST Request
 app.use(express.json())
