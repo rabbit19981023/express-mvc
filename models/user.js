@@ -19,9 +19,9 @@ const getAllUsers = (callback) => {
   UserModel.find((err, users) => {
     if (err) {
       callback(err, [])
-    } else {
-      callback(null, users)
+      return
     }
+    callback(null, users)
   })
 }
 
