@@ -11,6 +11,6 @@ export default {
       useUnifiedTopology: true
     })
       .then(() => { console.log('Connecting to database successfully!') })
-      .catch((error) => { console.error(`Database connected Error:\n${error}`) })
+      .catch((error) => { console.error(`Database connected failed:\n${error}`) })
   }
 }
