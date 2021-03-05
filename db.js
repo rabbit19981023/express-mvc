@@ -10,7 +10,7 @@ export default {
       useCreateIndex: true,
       useUnifiedTopology: true
     })
-    .then(() => { console.log('Connecting to database successfully!') })
-    .catch((error) => { console.error(`Database connected Error:\n${error}`) })
+      .then(() => { console.log('Connecting to database successfully!') })
+      .catch((error) => { console.error(`Database connected Error:\n${error}`) })
   }
 }
