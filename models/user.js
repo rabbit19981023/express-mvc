@@ -1,5 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
+/** Define the Database Structure **/
 // design the data fields what we want in this Data Collection(as same as a Data Table in SQL)
 const userSchema = new mongoose.Schema({
   firstname: String,
@@ -12,13 +13,12 @@ const userSchema = new mongoose.Schema({
 // every userModel is a user instance of userCollection
 const UserModel = mongoose.model('user', userSchema)
 
-// declare and define the method of this userModel (Callable APIs)
-
+/** Define the UserModel APIs **/
 // get all users in userCollection
 const getAllUsers = (callback) => {
-  UserModel.find((err, users) => {
-    if (err) {
-      callback(err, [])
+  UserModel.find((error, users) => {
+    if (error) {
+      callback(error, [])
       return
     }
     callback(null, users)
@@ -42,4 +42,4 @@ UserModel.getAllUsers = getAllUsers
 UserModel.addNewUser = addNewUser
 
 // exports the userCollection
-module.exports = UserModel
+export default UserModel

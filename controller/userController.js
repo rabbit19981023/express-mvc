@@ -1,12 +1,12 @@
-// containing the instance of userModel
-const UserModel = require('../models/user.js')
+// import the instance of userModel
+import UserModel from '../models/user.js'
 
 // Business Logics
 const userController = {
   userHome: (req, res) => {
-    UserModel.getAllUsers((err, users) => {
-      if (err) {
-        console.error(err)
+    UserModel.getAllUsers((error, users) => {
+      if (error) {
+        console.error(error)
       } else {
         res.render('home', { users: users })
       }
@@ -22,9 +22,9 @@ const userController = {
       city: req.body.city
     }
 
-    UserModel.addNewUser(user, (err, user) => {
-      if (err) {
-        console.error(err)
+    UserModel.addNewUser(user, (error, user) => {
+      if (error) {
+        console.error(error)
       } else {
         console.log('Added User Successfully! : ' + user)
         res.redirect('/user/home')
@@ -47,4 +47,4 @@ const userController = {
   }
 }
 
-module.exports = userController
+export default userController

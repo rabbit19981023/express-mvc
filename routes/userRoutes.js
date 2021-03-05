@@ -1,18 +1,12 @@
-const express = require('express')
-const userController = require('../controller/userController.js')
+import express from 'express'
+import userController from '../controller/userController.js'
 
-// express.Router is a class for creating a express route handler instance
-const router = express.Router()
+const router = express.Router() // create a express.Router instance
 
-// this route handler will be executed on '/user/home' request
-// userController will handle all the business logics about this route
+/** /user/ Routes **/
 router.get('/home', userController.userHome)
-
-// this route handler will be executed on '/user/add' POST request
 router.post('/add', userController.addUsers)
-
-// this route handler will be executed on '/user/delete' request
 router.get('/delete', userController.deleteUser)
 
 // exports the express.Router instance
-module.exports = router
+export default router

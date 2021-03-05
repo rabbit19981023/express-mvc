@@ -1,21 +1,16 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
-require('dotenv').config()
+dotenv.config() // read the Environment Variables in .env file
 
-// Database Config(MongoDB)
-const dbConfig = {
-  uri: process.env.MONGODB_URI,
-  params: {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
+export default {
+  connect: function () {
+    mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useUnifiedTopology: true
+    })
+    .then(() => { console.log('Connecting to database successfully!') })
+    .catch((error) => { console.error(`Database connected Error:\n${error}`) })
   }
 }
-// connecting to database(MongoDB)
-mongoose.connect(dbConfig.uri, dbConfig.params)
-  .then(() => {
-    console.log('Connecting to Database Successfully!')
-  })
-  .catch((err) => {
-    console.error(`Database connected Error:\n${err}`)
-  })
