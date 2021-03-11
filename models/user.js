@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+const { Schema } = mongoose // object destructuring syntax
 
 /** Define the Database Structure **/
 // design the data fields what we want in this Data Collection(as same as a Data Table in SQL)
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   firstname: String,
   lastname: String,
   country: String,
@@ -18,8 +19,7 @@ const UserModel = mongoose.model('user', userSchema)
 const getAllUsers = (callback) => {
   UserModel.find((error, users) => {
     if (error) {
-      callback(error, [])
-      return
+      return callback(error, [])
     }
     callback(null, users)
   })
